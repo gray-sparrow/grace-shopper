@@ -1,10 +1,13 @@
-Emily Lu
-David Li
+
 
 
 # Boilermaker
 
-Jenny Wong
+###Team Members:
+*Jenny Wong
+*Emily Lu
+*David Li
+*Billy Tan
 
 _Good things come in pairs_
 
