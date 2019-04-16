@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {fetchRice} from '../store/rice'
+import {fetchRice} from '../store/allRiceReducer'
 import {Link} from 'react-router-dom'
 
 class AllRice extends Component {
@@ -13,7 +13,6 @@ class AllRice extends Component {
     }
 
     render () {
-        console.log('what is this', this.props)
         const { rice } = this.props
         return (
             <div id='allrice'>
@@ -23,7 +22,10 @@ class AllRice extends Component {
                         <div className='campus' key={singleRice.id}>
                             <Link to={`/allproducts/${singleRice.id}`}>
                                 <div>
-                                    <h2>{singleRice.name}</h2>    
+                                    <h2>{singleRice.name}</h2>
+                                    <h3>Price: {singleRice.price}</h3>
+                                    <h3>Type: {singleRice.type}</h3>
+                                    <h4>Description: {singleRice.description}</h4>    
                                 </div>
                                 <img className='riceIMG' src={singleRice.img} />
                             </Link>

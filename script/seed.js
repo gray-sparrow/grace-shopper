@@ -14,14 +14,14 @@ async function seed() {
 
   const rice = await Promise.all([
     Rice.create({
-      name: 'wild rice',
+      name: 'Wild Rice',
       price: 1,
       type: 'Northern Wild Rice',
       img: '/wildrice.jpg',
       description: 'Northern wild rice (Zizania palustris) is an annual plant native to the Great Lakes region of North America, the aquatic areas of the Boreal Forest regions of Northern Ontario, Alberta, Saskatchewan and Manitoba in Canada and Minnesota, Wisconsin, Michigan and Idaho in the US.'
     }),
     Rice.create({
-      name: 'jasmine rice',
+      name: 'Jasmine Rice',
       price: 2,
       type: 'White Jasmine Rice',
       img: '/jasminerice.jpg',
