@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, Rice} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -10,6 +10,23 @@ async function seed() {
   const users = await Promise.all([
     User.create({email: 'cody@email.com', password: '123'}),
     User.create({email: 'murphy@email.com', password: '123'})
+  ])
+
+  const rice = await Promise.all([
+    Rice.create({
+      name: 'wild rice',
+      price: 1,
+      type: 'Northern Wild Rice',
+      img: '/wildrice.jpg',
+      description: 'Northern wild rice (Zizania palustris) is an annual plant native to the Great Lakes region of North America, the aquatic areas of the Boreal Forest regions of Northern Ontario, Alberta, Saskatchewan and Manitoba in Canada and Minnesota, Wisconsin, Michigan and Idaho in the US.'
+    }),
+    Rice.create({
+      name: 'jasmine rice',
+      price: 2,
+      type: 'White Jasmine Rice',
+      img: '/jasminerice.jpg',
+      description: 'White jasmine rice is white, has a jasmine flower aroma and, when cooked, a slightly sticky texture.[9]:8-13 The aroma is caused by the evaporation of 2-Acetyl-1-pyrroline.'
+    }),
   ])
 
   console.log(`seeded ${users.length} users`)
