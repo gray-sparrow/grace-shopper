@@ -5,8 +5,8 @@ const { Rice } = require('../db/models')
 
 router.get('/', async (req, res, next) => {
     try {
-        const rice = await Rice.findAll()
-        res.json(rice)
+      const rice = await Rice.findAll()
+      res.json(rice)
     } catch(error) { next(error) }
 })
 

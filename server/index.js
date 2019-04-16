@@ -59,7 +59,18 @@ const createApp = () => {
 			resave: false,
       saveUninitialized: false
 		})
-	);
+  );
+
+  app.use('/', (req, res, next) => {
+      //if there was no cart associated with this session, a cart should be initialized
+    if (!req.session.cart) {
+      req.session.cart = []
+      console.log('get fucked')
+    }
+    console.log(req.session)
+    next()
+  });
+
 	app.use(passport.initialize());
   app.use(passport.session());
 
@@ -68,7 +79,7 @@ const createApp = () => {
 	app.use('/api', require('./api'));
 
 	// static file-serving middleware
-	app.use(express.static(path.join(__dirname, '..', 'public')));
+  app.use(express.static(path.join(__dirname, '..', 'public')));
 
 	// any remaining requests with an extension (.js, .css, etc.) send 404
 	app.use((req, res, next) => {
@@ -79,7 +90,7 @@ const createApp = () => {
 		} else {
 			next();
 		}
-	});
+  });
 
 	// sends index.html
 	app.use('*', (req, res) => {
