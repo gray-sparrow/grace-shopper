@@ -65,9 +65,7 @@ const createApp = () => {
       //if there was no cart associated with this session, a cart should be initialized
     if (!req.session.cart) {
       req.session.cart = []
-      console.log('get fucked')
     }
-    console.log(req.session)
     next()
   });
 
