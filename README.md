@@ -1,13 +1,14 @@
-
-
-
 # Boilermaker
 
-###Team Members:
-*Jenny Wong
-*Emily Lu
-*David Li
-*Billy Tan
+<p align="center">
+<img src="/public/logo.png">
+</p>
+
+### Team Members:
+* Jenny Wong
+* Emily Lu
+* David Li
+* Billy Tan
 
 _Good things come in pairs_
 
