@@ -47,6 +47,4 @@ const mapDispatchToProps = dispatch => ({
     fetchRice: () => dispatch(fetchRice())
 })
 
-const ConnectedRice = connect(mapStateToProps, mapDispatchToProps)(AllRice)
-
-export default ConnectedRice
+export default connect(mapStateToProps, mapDispatchToProps)(AllRice)
