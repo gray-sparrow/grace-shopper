@@ -25,7 +25,7 @@ async function seed() {
       price: 2,
       type: 'White Jasmine Rice',
       img: '/jasminerice.jpg',
-      description: 'White jasmine rice is white, has a jasmine flower aroma and, when cooked, a slightly sticky texture.[9]:8-13 The aroma is caused by the evaporation of 2-Acetyl-1-pyrroline.'
+      description: 'White jasmine rice is white, has a jasmine flower aroma and, when cooked, a slightly sticky texture. The aroma is caused by the evaporation of 2-Acetyl-1-pyrroline.'
     }),
   ])
 
