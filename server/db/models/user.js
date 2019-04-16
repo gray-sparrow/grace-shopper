@@ -26,7 +26,11 @@ const User = db.define('user', {
   },
   googleId: {
     type: Sequelize.STRING
+  },
+  sessionId: {
+    type: Sequelize.STRING
   }
+  //every user should have a session id
 })
 
 module.exports = User
