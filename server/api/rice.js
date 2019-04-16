@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Rice } = require('../db')
+const { Rice } = require('../db/models')
 
 // Routes to api/allproducts
 
@@ -9,3 +9,5 @@ router.get('/', async (req, res, next) => {
         res.json(rice)
     } catch(error) { next(error) }
 })
+
+module.exports = router
