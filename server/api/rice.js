@@ -4,6 +4,7 @@ const { Rice } = require('../db/models')
 // Routes to api/allproducts
 
 router.get('/', async (req, res, next) => {
+  //Route for all products
     try {
       const rice = await Rice.findAll()
       res.json(rice)
@@ -11,6 +12,7 @@ router.get('/', async (req, res, next) => {
 })
 
 router.get('/:riceId', async (req, res, next) => {
+  //Route for single product
   try {
     const foundSingleRice = await Rice.findByPk(req.params.riceId)
     res.json(foundSingleRice)
