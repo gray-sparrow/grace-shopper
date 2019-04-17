@@ -9,12 +9,11 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Switch>
       <Routes />
-        {/* <Route exact path='/allproducts' component={AllRice}></Route> */}
+      <Switch>
+        <Route exact path='/allproducts' component={AllRice}></Route>
         <Route exact path='/allproducts/:riceId' component={SingleRice}></Route>
       </Switch>
-      <AllRice />
     </div>
   )
 }
