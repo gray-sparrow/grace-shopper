@@ -38,6 +38,8 @@ router.post('/signup', async (req, res, next) => {
 });
 
 router.post('/logout', (req, res) => {
+  //When my user logs out, I should push req.session.cart into a persistent
+  //storage along with the userID to retrieve upon logging in again.
 	req.logout();
 	req.session.destroy();
 	res.redirect('/');
