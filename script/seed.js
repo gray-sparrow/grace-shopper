@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Rice} = require('../server/db/models')
+const {User, Rice, Origin} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -28,6 +28,10 @@ async function seed() {
       description: 'White jasmine rice is white, has a jasmine flower aroma and, when cooked, a slightly sticky texture. The aroma is caused by the evaporation of 2-Acetyl-1-pyrroline.'
     }),
   ])
+
+  const origin = await Origin.create({
+    
+  })
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
