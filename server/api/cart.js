@@ -4,7 +4,7 @@ const router = require('express').Router()
 //Used for making back-end changes to req.session.cart
 
 router.get('/', (req, res, next) => {
-  res.json(req.session)
+  res.json(req.session.cart)
 })
 
 router.put('/', (req, res, next) => {
