@@ -19,6 +19,7 @@ async function seed() {
       name: 'Wild Rice',
       price: 1,
       type: 'Northern Wild Rice',
+      origin: 'North America, India, China',
       img: '/wildrice.jpg',
       description: 'Northern wild rice (Zizania palustris) is an annual plant native to the Great Lakes region of North America, the aquatic areas of the Boreal Forest regions of Northern Ontario, Alberta, Saskatchewan and Manitoba in Canada and Minnesota, Wisconsin, Michigan and Idaho in the US.'
     }),
@@ -26,21 +27,43 @@ async function seed() {
       name: 'Jasmine Rice',
       price: 2,
       type: 'White Jasmine Rice',
+      origin: 'Thailand',
       img: '/jasminerice.jpg',
       description: 'White jasmine rice is white, has a jasmine flower aroma and, when cooked, a slightly sticky texture. The aroma is caused by the evaporation of 2-Acetyl-1-pyrroline.'
     }),
     Rice.create({
+      name: 'Jasmine Rice',
+      price: 2,
+      type: 'Long-Grain Brown Jasmine Rice',
+      origin: 'Thailand',
+      img: '/brownrice.jpg',
+      description: 'Brown jasmine rice retains the light tan outer layer on the rice grain.[12] It has greater health benefits than white jasmine rice because it still has the bran.'
+    }),
+    Rice.create({
+      name: 'Jasmine Rice',
+      price: 2,
+      type: 'Short-grain Brown Jasmine Rice',
+      origin: 'Thailand',
+      img: '/brownrice.jpg',
+      description: 'Brown jasmine rice retains the light tan outer layer on the rice grain.[12] It has greater health benefits than white jasmine rice because it still has the bran.'
+    }),
+    Rice.create({
       name: 'Black Rice',
       price: 2,
-      type: 'White Jasmine Rice',
+      type: 'Philippines Black Rice',
+      origin: 'Philippines',
       img: '/blackrice.jpg',
       description: 'Black rice, also known as “forbidden rice” or “emperor’s rice,” was an exclusive food fed only to emperors in China. It owes its color to its high level of anthocyanin, the same antioxidant found in eggplant, blueberries, and purple corn. Rich in nutrients, this gorgeous and flavorful medium-grain rice is frequently used in Asian cuisine. You can also blend it with brown rice to make a sweet coconut rice pudding.'
     }),
+    Rice.create({
+      name: 'Kerala Matta Rice',
+      price: 2,
+      type: 'Kerala Matta Rice',
+      origin: 'India',
+      img: '/keralamatta.jpg',
+      description: 'Grown in India, matta or rosematta rice is a medium grain with a reddish color. Its bran layer is full of natural nutrients. Known for its robust earthy flavor, this variety calls for meaty accompaniments like lamb, beef, or game. It is well suited to slow-cooking stews and rich curries.'
+    })
   ])
-
-  const origin = await Origin.create({
-    name: 'Thailand'
-  })
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
