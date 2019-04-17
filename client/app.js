@@ -11,8 +11,9 @@ const App = () => {
       <Navbar />
       <Routes />
       <Switch>
-        <Route exact path='/allproducts' component={AllRice}></Route>
-        <Route exact path='/allproducts/:riceId' component={SingleRice}></Route>
+        <Route exact path='/allproducts' component={AllRice} />
+        <Route exact path='/allproducts/:riceId' component={SingleRice} />
+        <Route path='/' component={AllRice} />
       </Switch>
     </div>
   )
