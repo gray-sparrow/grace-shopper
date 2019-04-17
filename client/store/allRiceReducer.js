@@ -9,12 +9,10 @@ const getRice = rice => ({
   rice
 })
 
-// Thunk
+//Thunk
 export const fetchRice = () => async dispatch => {
   try {
-    //console.log('is thunk reached?')
     const {data} = await axios.get('/api/allproducts')
-    //console.log('what is data', data)
     dispatch(getRice(data))
   } catch (err) {
     console.error('Error in thunk')
