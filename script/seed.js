@@ -27,10 +27,17 @@ async function seed() {
       img: '/jasminerice.jpg',
       description: 'White jasmine rice is white, has a jasmine flower aroma and, when cooked, a slightly sticky texture. The aroma is caused by the evaporation of 2-Acetyl-1-pyrroline.'
     }),
+    Rice.create({
+      name: 'Black Rice',
+      price: 2,
+      type: 'White Jasmine Rice',
+      img: '/blackrice.jpg',
+      description: 'Black rice, also known as “forbidden rice” or “emperor’s rice,” was an exclusive food fed only to emperors in China. It owes its color to its high level of anthocyanin, the same antioxidant found in eggplant, blueberries, and purple corn. Rich in nutrients, this gorgeous and flavorful medium-grain rice is frequently used in Asian cuisine. You can also blend it with brown rice to make a sweet coconut rice pudding.'
+    }),
   ])
 
   const origin = await Origin.create({
-    
+    name: 'Thailand'
   })
 
   console.log(`seeded ${users.length} users`)
