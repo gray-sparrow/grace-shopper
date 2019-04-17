@@ -20,6 +20,10 @@ form div {
   display: inline-block;
 }
 
+#title {
+  display: flex
+}
+
 .riceIMG {
   height: 350px;
   width: 400px;
