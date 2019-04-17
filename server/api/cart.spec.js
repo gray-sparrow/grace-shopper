@@ -22,7 +22,6 @@ describe('Cart routes', () => {
         .put('/api/cart')
         .send({productId: 1, quantity: 2})
         .expect(202)
-      console.log(res.body)
       expect(res.body).to.be.an('array')
     })
   })

@@ -9,7 +9,6 @@ router.get('/', (req, res, next) => {
 
 router.put('/', (req, res, next) => {
   //updates the cart with a req.body containing an individual product's ID and quantity
-  console.log('here')
   req.session.cart.push(req.body)
   res.status(202).send(req.session.cart)
 })
