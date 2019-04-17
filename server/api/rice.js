@@ -10,4 +10,11 @@ router.get('/', async (req, res, next) => {
     } catch(error) { next(error) }
 })
 
+router.get('/:riceId', async (req, res, next) => {
+  try {
+    const foundSingleRice = await Rice.findByPk(req.params.riceId)
+    res.json(foundSingleRice)
+  } catch(error) { next(error) }
+})
+
 module.exports = router
