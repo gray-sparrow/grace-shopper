@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {User, Rice, Origin} = require('../server/db/models')
+const {User, Rice} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
@@ -44,7 +44,7 @@ async function seed() {
       price: 2,
       type: 'Short-grain Brown Jasmine Rice',
       origin: 'Thailand',
-      img: '/brownrice.jpg',
+      img: '/shortgrainbrownrice.jpg',
       description: 'Brown jasmine rice retains the light tan outer layer on the rice grain.[12] It has greater health benefits than white jasmine rice because it still has the bran.'
     }),
     Rice.create({

@@ -1,6 +1,5 @@
 const User = require('./user')
 const Rice = require('./rice')
-const Origin = require('./origin')
 
 /**
  * If we had any associations to make, this would be a great place to put them!
@@ -16,11 +15,8 @@ const Origin = require('./origin')
  * instead of: const User = require('../db/models/user')
  */
 
-Origin.hasMany(Rice)
-Rice.belongsTo(Origin)
 
 module.exports = {
   User,
-  Rice,
-  Origin
+  Rice
 }
