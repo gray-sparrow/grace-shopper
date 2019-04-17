@@ -24,13 +24,15 @@ describe('Rice routes', () => {
       })
     })
 
+    // Route for fetching all products
     it('GET /api/allproducts', async () => {
       const res = await request(app)
         .get('/api/allproducts')
         .expect(200)
-        
+
       expect(res.body).to.be.an('array')
       expect(res.body[0].name).to.be.equal(riceName)
     })
   })
 })
+

@@ -10,40 +10,46 @@ import thunkMiddleware from 'redux-thunk'
 const middlewares = [thunkMiddleware]
 const mockStore = configureMockStore(middlewares)
 
-describe('thunk creators', () => {
-  let store
-  let mockAxios
+const initialState = {
+    rice: {}
+}
 
-  const initialState = {rice: []}
+const store = mockStore(initialState);
 
-  beforeEach(() => {
-    mockAxios = new MockAdapter(axios)
-    store = mockStore(initialState)
-  })
 
-  afterEach(() => {
-    mockAxios.restore()
-    store.clearActions()
-  })
+describe('All Rice - Redux', () => {
 
-  describe('me', () => {
-    it('eventually dispatches the GET USER action', async () => {
-      const fakeUser = {email: 'Cody'}
-      mockAxios.onGet('/auth/me').replyOnce(200, fakeUser)
-      await store.dispatch(me())
-      const actions = store.getActions()
-      expect(actions[0].type).to.be.equal('GET_USER')
-      expect(actions[0].user).to.be.deep.equal(fakeUser)
+    const rice = {
+        name: 'Jasmine Rice',
+        price: 2,
+        type: 'White Jasmine Rice',
+        img: '/jasminerice.jpg',
+        description: 'White jasmine rice is white, has a jasmine flower aroma and, when cooked, a slightly sticky texture. The aroma is caused by the evaporation of 2-Acetyl-1-pyrroline.'
+      }
+
+    let mock;
+    beforeEach(() => {
+      mock = new MockAdapter(axios)
     })
-  })
 
-  describe('logout', () => {
-    it('logout: eventually dispatches the REMOVE_USER action', async () => {
-      mockAxios.onPost('/auth/logout').replyOnce(204)
-      await store.dispatch(logout())
-      const actions = store.getActions()
-      expect(actions[0].type).to.be.equal('REMOVE_USER')
-      expect(history.location.pathname).to.be.equal('/login')
+    afterEach(() => {
+      mock.reset();
     })
+
+    describe('setting all rice', () => {
+
+      describe('`fetchRice` thunk creator', () => {
+        // defined in ../client/store/allRiceReducer.js
+
+        it('returns a thunk to fetch all rice from the backend and dispatch a SET_RICE action', async () => {
+          mock.onGet('/api/allproducts').replyOnce(200, rice);
+          await store.dispatch(fetchRice())
+          const actions = store.getActions();
+          expect(actions[0].type).to.equal('SET_RICE');
+          expect(actions[0].rice).to.deep.equal(rice);
+        })
+      })
+
+    })
+
   })
-})

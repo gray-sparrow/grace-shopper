@@ -2,31 +2,24 @@
 
 const {expect} = require('chai')
 const db = require('../index')
-const Rice= db.model('rice')
+const Rice = db.model('rice')
 
 describe('Rice model', () => {
   beforeEach(() => {
     return db.sync({force: true})
   })
 
-  describe('instanceMethods', () => {
-    describe('correctPassword', () => {
-      let cody
+  describe('Validations', () => {
+    it('requires `name`', async () => {
+      const rice = Rice.build();
 
-      beforeEach(async () => {
-        cody = await User.create({
-          email: 'cody@puppybook.com',
-          password: 'bones'
-        })
-      })
-
-      it('returns true if the password is correct', () => {
-        expect(cody.correctPassword('bones')).to.be.equal(true)
-      })
-
-      it('returns false if the password is incorrect', () => {
-        expect(cody.correctPassword('bonez')).to.be.equal(false)
-      })
-    }) // end describe('correctPassword')
-  }) // end describe('instanceMethods')
-}) // end describe('User model')
+      try {
+        await rice.validate()
+        throw Error('validation was successful but should have failed without `name`');
+      }
+      catch (err) {
+        expect(err.message).to.contain('name cannot be null');
+      }
+    })
+  })
+})

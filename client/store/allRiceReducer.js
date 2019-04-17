@@ -9,7 +9,7 @@ const getRice = rice => ({
   rice
 })
 
-// Thunk
+//Thunk
 export const fetchRice = () => async dispatch => {
   try {
     const {data} = await axios.get('/api/allproducts')
