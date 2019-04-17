@@ -26,7 +26,6 @@ const allRice = []
 const riceReducer = (state = allRice, action) => {
   switch (action.type) {
     case SET_RICE:
-    console.log('what is action.rice', action.rice)
       return action.rice
     default:
       return state
