@@ -10,7 +10,7 @@ class Cart extends Component {
     const {cart} = this.props
     return (
       <div>{cart.map(item => {
-        return item
+        return item.name
       })}</div>
     )
   }
