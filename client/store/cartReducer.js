@@ -29,7 +29,6 @@ export const fetchCart = () => async dispatch => {
 export const putCart = (item) => async dispatch => {
   try {
     const { data } = await axios.put('/api/cart', item)
-    console.log(data)
     dispatch(addCart(data))
   } catch (error) {
     console.error('Error in thunk')
