@@ -2,6 +2,7 @@ import axios from 'axios'
 
 const GET_CART = 'GET_CART';
 const ADD_TO_CART = 'ADD_TO_CART'
+const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 const getCart = cart => {
   return {
@@ -13,6 +14,13 @@ const getCart = cart => {
 const addCart = cart => {
   return {
     type: ADD_TO_CART,
+    cart
+  }
+}
+
+const removeCart = cart => {
+  return {
+    type: REMOVE_FROM_CART,
     cart
   }
 }
@@ -35,6 +43,15 @@ export const putCart = (item) => async dispatch => {
   }
 }
 
+export const deleteCart = (itemId) => async dispatch => {
+  try {
+    const { data } = await axios.put('/api/cart/removeFromCart', {'productId': itemId})
+    dispatch(removeCart(data))
+  } catch (error) {
+    console.error('Error in thunk')
+  }
+}
+
 //Initial State
 const cart = []
 
@@ -44,6 +61,8 @@ const cartReducer = (state = cart, action) => {
     case GET_CART:
       return action.cart
     case ADD_TO_CART:
+      return action.cart
+    case REMOVE_FROM_CART:
       return action.cart
     default:
       return state
