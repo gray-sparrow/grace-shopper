@@ -10,7 +10,6 @@ class SingleRice extends Component {
 
   render() {
     const { singleRice } = this.props
-    console.log(this.props)
     return (   <div className='campus' key={singleRice.id}>
     <h2>{singleRice.name}</h2>
     <img className='riceIMG' src={singleRice.img} />
