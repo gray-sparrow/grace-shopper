@@ -15,7 +15,7 @@ describe('Cart routes', () => {
         .get('/api/cart')
         .expect(200)
 
-      expect(res.body).to.be.an('object')
+      expect(res.body).to.be.an('array')
     })
     it('PUT /api/cart', async () => {
       const res = await request(app)
