@@ -64,7 +64,7 @@ async function seed() {
       description: 'Grown in India, matta or rosematta rice is a medium grain with a reddish color. Its bran layer is full of natural nutrients. Known for its robust earthy flavor, this variety calls for meaty accompaniments like lamb, beef, or game. It is well suited to slow-cooking stews and rich curries.'
     })
   ])
-
+  console.log(`seeded ${rice.length} products`)
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
 }
