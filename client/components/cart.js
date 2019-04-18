@@ -3,15 +3,17 @@ import { connect } from 'react-redux'
 import {fetchCart} from '../store/cartReducer'
 
 class Cart extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     this.props.fetchCart()
   }
   render() {
     const {cart} = this.props
     return (
-      <div>{cart.map(item => {
-        return item
-      })}</div>
+      <div><ul>{cart.map(item => {
+        return <div><li class="cart-item">{item.name}</li></div>
+      })}</ul>
+      <div>SUBTOTAL:</div>
+      </div>
     )
   }
 }

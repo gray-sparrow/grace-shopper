@@ -6,6 +6,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none
+}
+
 label {
   display: block;
 }
@@ -27,4 +31,8 @@ form div {
 .riceIMG {
   height: 350px;
   width: 400px;
+}
+
+.cart-item {
+  margin: 0 0 10px;
 }
