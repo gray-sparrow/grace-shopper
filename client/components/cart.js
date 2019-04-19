@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCart } from '../store/cartReducer';
-import {deleteCart} from '../store/cartReducer'
+import { fetchCart, deleteCart } from '../store/cartReducer';
 
 class Cart extends Component {
   constructor() {
