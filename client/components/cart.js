@@ -15,11 +15,13 @@ class Cart extends Component {
     this.props.deleteCart(itemId)
   }
 	render() {
-		const { cart } = this.props;
+    const { cart } = this.props;
+    let subtotal = 0;
 		return (
 			<div>
 				<ul>
-					{cart.map((item) => {
+          {cart.map((item) => {
+            subtotal += (item.price * item.quantity)
 						return (
 							<div key={item.id}>
                 <li className="cart-item">{item.name}</li>
@@ -31,7 +33,7 @@ class Cart extends Component {
 						);
 					})}
 				</ul>
-				<div>SUBTOTAL:</div>
+        <div>SUBTOTAL: {subtotal}</div>
 			</div>
 		);
 	}
