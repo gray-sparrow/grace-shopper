@@ -17,7 +17,6 @@ class Cart extends Component {
   }
 
   handleSubmit() {
-    console.log('working')
     this.props.newOrderPosted()
   }
 	render() {

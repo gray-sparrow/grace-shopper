@@ -14,6 +14,7 @@ const Order = db.define('orders', {
   price: {
     type: Sequelize.INTEGER
   }
+  //SESSIONID IMPLEMENTATION NEEDED
 })
 
 module.exports = Order
