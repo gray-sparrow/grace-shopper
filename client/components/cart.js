@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchCart } from '../store/cartReducer';
-import {deleteCart} from '../store/cartReducer'
+import { fetchCart, deleteCart } from '../store/cartReducer';
 
 class Cart extends Component {
   constructor() {
@@ -16,11 +15,13 @@ class Cart extends Component {
     this.props.deleteCart(itemId)
   }
 	render() {
-		const { cart } = this.props;
+    const { cart } = this.props;
+    let subtotal = 0;
 		return (
 			<div>
 				<ul>
-					{cart.map((item) => {
+          {cart.map((item) => {
+            subtotal += (item.price * item.quantity)
 						return (
 							<div key={item.id}>
                 <li className="cart-item">{item.name}</li>
@@ -32,7 +33,7 @@ class Cart extends Component {
 						);
 					})}
 				</ul>
-				<div>SUBTOTAL:</div>
+        <div>SUBTOTAL: {subtotal}</div>
 			</div>
 		);
 	}
