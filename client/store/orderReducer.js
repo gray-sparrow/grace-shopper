@@ -3,6 +3,7 @@ import axios from 'axios'
 //ACTION TYPE
 const POST_ORDER = 'POST_ORDER'
 const GET_ALL_ORDERS = 'GET_ALL_ORDERS'
+const GET_ORDER = 'GET_ORDER'
 //ACTION CREATOR
 const postOrder = orderInfo => {
   //this action creator will update redux state of our order which will lead into our order confirmation page
@@ -15,6 +16,11 @@ const postOrder = orderInfo => {
 const gotAllOrders = orders => ({
   type: GET_ALL_ORDERS,
   orders
+})
+
+const gotOrder = order => ({
+  type: GET_ORDER,
+  order
 })
 
 //THUNK
@@ -37,10 +43,20 @@ export const getAllOrders = () => async dispatch => {
   }
 }
 
+export const getOrder = id => async dispatch => {
+  try {
+    const {data} = await axios.get(`/api/orders/:${id}`)
+    console.log(data)
+    dispatch(gotOrder(data))
+  } catch (error) {
+    console.log('Get single order thunk failed!')
+  }
+}
 //initialState
 const initialState = {
   neworder: {},
-  orders: []
+  orders: [],
+  order: {}
 }
 
 //RETURNS
@@ -49,8 +65,9 @@ const orderReducer = (state = initialState, action) => {
     case POST_ORDER:
       return action.orderInfo
     case GET_ALL_ORDERS:
-      console.log(action.orders)
       return {...state, orders: action.orders}
+    case GET_ORDER:
+      return action.order
     default:
       return initialState
   }

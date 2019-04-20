@@ -12,6 +12,16 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/:id', async (req, res, next) => {
+  try {
+    const id = Number(req.params.id)
+    let order = await Order.findByPk(id)
+    res.json(order)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
     //create a newOrder object to hold my info
