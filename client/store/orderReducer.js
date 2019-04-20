@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const POST_ORDER = 'POST_ORDER'
 const GET_ALL_ORDERS = 'GET_ALL_ORDERS'
-
+const BUY_ORDER = 'BUY_ORDER'
 const postOrder = orderInfo => {
   //this action creator will update redux state of our order which will lead into our order confirmation page
   return {
@@ -18,6 +18,11 @@ const gotAllOrders = orders => ({
 
 const gotOrder = order => ({
   type: GET_ORDER,
+  order
+})
+
+const boughtOrder = order => ({
+  type: boughtOrder,
   order
 })
 
@@ -47,6 +52,14 @@ export const getOrder = id => async dispatch => {
     dispatch(gotOrder(data))
   } catch (error) {
     console.log('Get single order thunk failed!')
+  }
+}
+
+export const buyOrder = id => async dispatch => {
+  try {
+    const {data} = await axios.put(`/api/orders/${id}`)
+  } catch (error) {
+    console.log('Buy order thunk failed!')
   }
 }
 //initialState
