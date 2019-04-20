@@ -17,6 +17,7 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+  padding: 10px;
 }
 
 form div {
@@ -62,6 +63,11 @@ form div {
 .riceIMG {
   height: 350px;
   width: 400px;
+  padding: 10px;
+}
+
+#product {
+  padding: 30px;
 }
 
 .allProducts {
@@ -82,6 +88,7 @@ form div {
   justify-content: space-around;
   flex-direction: row;
   width: 1500px;
+  padding: 30px;
 }
 
 .content {
