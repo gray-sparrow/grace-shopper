@@ -6,9 +6,9 @@ const { Order } = require('../db/models');
 router.post('/', async (req, res, next) => {
 	try {
 		//create a newOrder object to hold my info
-		let newOrderInfo;
+    let newOrderInfo;
 		if (!req.session.cart.length) {
-			res.sendStatus(404);
+			res.sendStatus(422);
 		} else {
       //if this person does not have a passport, he/she is not a user
       //HARD-CODED DATA WILL UPDATE LATER
@@ -16,21 +16,21 @@ router.post('/', async (req, res, next) => {
 				newOrderInfo = {
 					cart: req.session.cart,
 					status: 'completed',
-					price: 10,
-					userId: null
+          price: req.body.price,
+          sessionId: req.sessionID
 				};
 			} else {
 				newOrderInfo = {
 					cart: req.session.cart,
 					status: 'completed',
-					price: 10,
-					userId: req.session.passport.user
+					price: req.body.price,
+          userId: req.session.passport.user,
 				};
 			}
 			//create a new instance of Order within my DB with status completed
-			await Order.create(newOrderInfo);
+      const newOrder = await Order.create(newOrderInfo);
 			req.session.cart = [];
-			res.send(req.session.cart);
+			res.send(newOrder);
 		}
 	} catch (error) {
 		console.log(error);

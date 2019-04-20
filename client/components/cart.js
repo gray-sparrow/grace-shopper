@@ -16,8 +16,9 @@ class Cart extends Component {
 		this.props.deleteCart(itemId);
   }
 
-  handleSubmit() {
-    this.props.newOrderPosted()
+  handleSubmit(subtotal) {
+    //thunk is passed the subtotal calculation because we calculated it upon mapping.
+    this.props.newOrderPosted(subtotal)
   }
 	render() {
 		const { cart } = this.props;
@@ -39,7 +40,7 @@ class Cart extends Component {
 					})}
 				</ul>
 				<div>SUBTOTAL: {subtotal}</div>
-				<button type="submit" onClick={() => this.handleSubmit()} id="SubmitFromCart">
+				<button type="submit" onClick={() => this.handleSubmit(subtotal)} id="SubmitFromCart">
 					Submit
 				</button>
 			</div>
@@ -57,7 +58,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		fetchCart: () => dispatch(fetchCart()),
     deleteCart: (itemId) => dispatch(deleteCart(itemId)),
-    newOrderPosted: () => dispatch(newOrderPosted())
+    newOrderPosted: (subtotal) => dispatch(newOrderPosted(subtotal))
 	};
 };
 

@@ -5,6 +5,7 @@ const POST_ORDER = 'POST_ORDER'
 
 //ACTION CREATOR
 const postOrder = (orderInfo) => {
+  //this action creator will update redux state of our order which will lead into our order confirmation page
   return {
     type: POST_ORDER,
     orderInfo
@@ -12,9 +13,10 @@ const postOrder = (orderInfo) => {
 }
 
 //THUNK
-export const newOrderPosted = (order) => async dispatch => {
+export const newOrderPosted = (subtotal) => async dispatch => {
   try {
-    const { data } = await axios.post(`/api/orders`, order)
+    //Making a post and returns the completed orderInfo
+    const { data } = await axios.post(`/api/orders`, { price: subtotal })
     dispatch(postOrder(data))
   } catch (err) {
     console.error('Error in thunk')
