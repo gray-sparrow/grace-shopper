@@ -1,10 +1,8 @@
 import axios from 'axios'
 
-//ACTION TYPE
 const POST_ORDER = 'POST_ORDER'
 const GET_ALL_ORDERS = 'GET_ALL_ORDERS'
-const GET_ORDER = 'GET_ORDER'
-//ACTION CREATOR
+
 const postOrder = orderInfo => {
   //this action creator will update redux state of our order which will lead into our order confirmation page
   return {
@@ -44,7 +42,6 @@ export const getAllOrders = () => async dispatch => {
 }
 
 export const getOrder = id => async dispatch => {
-  // console.log('hello there')
   try {
     const {data} = await axios.get(`/api/orders/${id}`)
     dispatch(gotOrder(data))
