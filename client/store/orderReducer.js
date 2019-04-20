@@ -44,9 +44,9 @@ export const getAllOrders = () => async dispatch => {
 }
 
 export const getOrder = id => async dispatch => {
+  // console.log('hello there')
   try {
-    const {data} = await axios.get(`/api/orders/:${id}`)
-    console.log(data)
+    const {data} = await axios.get(`/api/orders/${id}`)
     dispatch(gotOrder(data))
   } catch (error) {
     console.log('Get single order thunk failed!')
@@ -67,7 +67,7 @@ const orderReducer = (state = initialState, action) => {
     case GET_ALL_ORDERS:
       return {...state, orders: action.orders}
     case GET_ORDER:
-      return action.order
+      return {...state, order: action.order}
     default:
       return initialState
   }

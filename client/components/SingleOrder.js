@@ -6,18 +6,35 @@ class SingleOrder extends Component {
   constructor(props) {
     super(props)
   }
+  componentDidMount() {
+    this.props.getOrder(this.props.match.params.id)
+  }
 
   render() {
-    return <div>Hello World!</div>
+    const {order} = this.props
+    return !this.props.order.cart ? (
+      <div>Loading!</div>
+    ) : (
+      <div>
+        <h2>Price: {order.price}</h2>
+        <h2>Order Status: {order.status}</h2>
+        <h2>Order Number: {order.id}</h2>
+        <h2>Cart: </h2>
+        {order.cart.map(item => (
+          <div key={item.id}>
+            <h3>{item.quantity}</h3>
+            <h3>{item.name}</h3>
+          </div>
+        ))}
+      </div>
+    )
   }
 }
 
-const mSTP = state => ({
-  order: state.order
-})
+const mSTP = state => state.orderReducer
 
 const mDTP = dispatch => ({
   getOrder: id => dispatch(getOrder(id))
 })
 
-export default (mSTP, mDTP)(SingleOrder)
+export default connect(mSTP, mDTP)(SingleOrder)

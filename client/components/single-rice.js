@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchSingleRice } from '../store/singleRiceReducer';
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {fetchSingleRice} from '../store/singleRiceReducer'
 import {putCart} from '../store/cartReducer'
 
 class SingleRice extends Component {
@@ -13,38 +13,40 @@ class SingleRice extends Component {
     const {singleRice} = this.props
     this.props.putCart(singleRice)
   }
-	componentDidMount() {
-		this.props.fetchSingleRice(this.props.match.params.riceId);
-	}
+  componentDidMount() {
+    this.props.fetchSingleRice(this.props.match.params.riceId)
+  }
 
-	render() {
-		const { singleRice } = this.props;
-		return (
-			<div className="campus" key={singleRice.id}>
-				<h2>{singleRice.name}</h2>
-				<img className="riceIMG" src={singleRice.img} />
-				<div>
-					<h3>Price: {singleRice.price}</h3>
-					<h3>Type: {singleRice.type}</h3>
-					<h4>Description: {singleRice.description}</h4>
+  render() {
+    const {singleRice} = this.props
+    return (
+      <div className="campus" key={singleRice.id}>
+        <h2>{singleRice.name}</h2>
+        <img className="riceIMG" src={singleRice.img} />
+        <div>
+          <h3>Price: {singleRice.price}</h3>
+          <h3>Type: {singleRice.type}</h3>
+          <h4>Description: {singleRice.description}</h4>
         </div>
-        <button type="submit" onClick={() => this.handleClick()} id="addCart">ADD TO CART</button>
-			</div>
-		);
-	}
+        <button type="submit" onClick={() => this.handleClick()} id="addCart">
+          ADD TO CART
+        </button>
+      </div>
+    )
+  }
 }
 
-const mapStateToProps = (state) => {
-	return {
-		singleRice: state.singleRiceReducer
-	};
-};
+const mapStateToProps = state => {
+  return {
+    singleRice: state.singleRiceReducer
+  }
+}
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-    fetchSingleRice: (riceId) => dispatch(fetchSingleRice(riceId)),
-    putCart: (item) => dispatch(putCart(item))
-	};
-};
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchSingleRice: riceId => dispatch(fetchSingleRice(riceId)),
+    putCart: item => dispatch(putCart(item))
+  }
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleRice);
+export default connect(mapStateToProps, mapDispatchToProps)(SingleRice)

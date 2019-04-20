@@ -11,26 +11,22 @@ class AllOrders extends Component {
     this.props.getAllOrders()
   }
   render() {
-    return !this.props.orders ? (
-      <div>Loading!</div>
-    ) : (
-      <div>
-        {console.log(this.props, 'reaching here')}
-        {this.props.orders.orders.map(order => (
+    if (!this.props.orders) return <div>Loading!</div>
+    return (
+      <ul>
+        {this.props.orders.map(order => (
           <div key={order.id}>
-            <h1>Order:{order.cart.name}</h1>
-            <h2>Status:{order.status}</h2>
-            <h2>Price:{order.price}</h2>
+            <li>Order:{order.cart.name}</li>
+            <li>Status:{order.status}</li>
+            <li>Price:{order.price}</li>
           </div>
         ))}
-      </div>
+      </ul>
     )
   }
 }
 
-const mSTP = state => ({
-  orders: state.orderReducer
-})
+const mSTP = state => state.orderReducer
 
 const mDTP = dispatch => ({
   getAllOrders: () => dispatch(getAllOrders())
