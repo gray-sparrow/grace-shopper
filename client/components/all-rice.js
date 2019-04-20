@@ -16,8 +16,8 @@ class AllRice extends Component {
                     <section id='about'>
                     <div>
                         <div id='homepage-text'>
-                            <h1>Welcome to ShopRice</h1>
-                            <p>
+                            <h1 className='home-title'>Welcome to ShopRice</h1>
+                            <p className='home-subtitle'>
                             Providing the highest quality of rice since 1902
                             </p>
                         </div>

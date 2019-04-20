@@ -33,6 +33,18 @@ form div {
   justify-content: center;
 }
 
+.home-title {
+  font-size: 80px;
+  color: white;
+  text-shadow: 1px 1px 3px black; 
+}
+
+.home-subtitle {
+  font-size: 30px;
+  color: white;
+  text-shadow: 1px 1px 3px black; 
+}
+
 #homepage-text {
   text-align: center;
   flex-direction: column;
@@ -41,7 +53,6 @@ form div {
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
 
 .homepage {
   max-height: 600px;
