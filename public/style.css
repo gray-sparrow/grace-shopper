@@ -28,11 +28,53 @@ form div {
   display: flex
 }
 
+#about div {
+  display: flex;
+  justify-content: center;
+}
+
+#homepage-text {
+  text-align: center;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.homepage {
+  max-height: 600px;
+  max-width: 100%;
+}
+
 .riceIMG {
   height: 350px;
   width: 400px;
 }
 
+.allProducts {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  padding: 10px;
+}
+
 .cart-item {
   margin: 0 0 10px;
+}
+
+.singleProduct-page {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 1500px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
 }

@@ -11,24 +11,35 @@ class AllRice extends Component {
     render () {
         const { rice } = this.props
         return (
-            <div id='allrice'>
+            <div>
                 <main>
-                <h1>All Rice</h1>
-                    {rice.map(singleRice=> (
-                        <div className='campus' key={singleRice.id}>
-                            <Link to={`/allproducts/${singleRice.id}`}>
-                            <h2>{singleRice.name}</h2>
-                            <img className='riceIMG' src={singleRice.img} />
-                            </Link>
-                                <div>
-                                    <h3>Price: {singleRice.price}</h3>
-                                    <h3>Type: {singleRice.type}</h3>
-                                    <h4>Description: {singleRice.description}</h4>
-                                </div>
-                        </div>
-                    ))}
+                    <section id='about'>
                     <div>
+                        <div id='homepage-text'>
+                            <h1>Welcome to ShopRice</h1>
+                            <p>
+                            Providing the highest quality of rice since 1902
+                            </p>
+                        </div>
+                        <div id='aboutbackground'>
+                            <img className='homepage' src='/pictures/hero.jpg' alt='Homepage background' />
+                        </div>
                     </div>
+                    </section>
+
+                    <section id='product'>
+                    <h1>All Rice Products</h1>
+                        <div className='allProducts'>
+                            {rice.map(singleRice=> (
+                                <div className='singleProduct' key={singleRice.id}>
+                                    <Link to={`/allproducts/${singleRice.id}`}>
+                                    <h2>{singleRice.name}</h2>
+                                    <img className='riceIMG' src={singleRice.img} />
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
                 </main>
             </div>
         )
