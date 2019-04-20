@@ -6,8 +6,9 @@ import user from './user'
 import riceReducer from './allRiceReducer'
 import singleRiceReducer from './singleRiceReducer'
 import cartReducer from './cartReducer'
+import orderReducer from './orderReducer'
 
-const reducer = combineReducers({user, riceReducer, singleRiceReducer, cartReducer})
+const reducer = combineReducers({user, riceReducer, singleRiceReducer, cartReducer, orderReducer})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
