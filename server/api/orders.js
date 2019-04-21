@@ -56,4 +56,20 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+router.put('/:id', async (req, res, next) => {
+  try {
+    const id = Number(req.params.id)
+    let toBeUpdated = await Order.findByPk(id)
+    let updated = await toBeUpdated.update({
+      status: 'paid',
+      where: {
+        status: 'unpaid'
+      }
+    })
+    res.json(updated)
+  } catch (error) {
+    next(error)
+  }
+})
+
 module.exports = router

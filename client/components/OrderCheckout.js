@@ -17,4 +17,4 @@ const mSTP
 
 const mDTP
 
-export default (mSTP, mDTP)(OrderCheckout)
+export default connect(mSTP, mDTP)(OrderCheckout)

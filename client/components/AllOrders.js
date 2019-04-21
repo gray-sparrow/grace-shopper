@@ -11,12 +11,22 @@ class AllOrders extends Component {
     this.props.getAllOrders()
   }
   render() {
-    if (!this.props.orders) return <div>Loading!</div>
-    return (
+    return !this.props.orders ? (
+      <div>Loading!</div>
+    ) : (
       <ul>
         {this.props.orders.map(order => (
           <div key={order.id}>
-            <li>Order:{order.cart.name}</li>
+            <li>
+              <h1>Order:</h1>
+              {order.cart.map(item => (
+                <div key={item.id}>
+                  <h4>
+                    {item.quantity} units of {item.name}
+                  </h4>
+                </div>
+              ))}
+            </li>
             <li>Status:{order.status}</li>
             <li>Price:{order.price}</li>
           </div>
