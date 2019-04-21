@@ -2,8 +2,9 @@ import axios from 'axios'
 
 const POST_ORDER = 'POST_ORDER'
 const GET_ALL_ORDERS = 'GET_ALL_ORDERS'
-const BUY_ORDER = 'BUY_ORDER'
+// const BUY_ORDER = 'BUY_ORDER'
 const GET_ORDER = 'GET_ORDER'
+
 const postOrder = orderInfo => {
   //this action creator will update redux state of our order which will lead into our order confirmation page
   return {
@@ -22,10 +23,10 @@ const gotOrder = order => ({
   order
 })
 
-const boughtOrder = order => ({
-  type: boughtOrder,
-  order
-})
+// const boughtOrder = order => ({
+//   type: boughtOrder,
+//   order
+// })
 
 //THUNK
 export const newOrderPosted = subtotal => async dispatch => {
@@ -56,14 +57,14 @@ export const getOrder = id => async dispatch => {
   }
 }
 
-export const buyOrder = id => async dispatch => {
-  try {
-    const {data} = await axios.put(`/api/orders/${id}`)
-    dispatch(boughtOrder(data))
-  } catch (error) {
-    console.log('Buy order thunk failed!')
-  }
-}
+// export const buyOrder = id => async dispatch => {
+//   try {
+//     const {data} = await axios.put(`/api/orders/${id}`)
+//     dispatch(boughtOrder(data))
+//   } catch (error) {
+//     console.log('Buy order thunk failed!')
+//   }
+// }
 //initialState
 const initialState = {
   neworder: {},
@@ -80,9 +81,9 @@ const orderReducer = (state = initialState, action) => {
       return {...state, orders: action.orders}
     case GET_ORDER:
       return {...state, order: action.order}
-    case BUY_ORDER:
-      const updateId = Number(action.order.id)
-      console.log(updateId)
+    // case BUY_ORDER:
+    //   const updateId = Number(action.order.id)
+    //   console.log(updateId)
     default:
       return initialState
   }
