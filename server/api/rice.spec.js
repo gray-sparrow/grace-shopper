@@ -33,6 +33,14 @@ describe('Rice routes', () => {
       expect(res.body).to.be.an('array')
       expect(res.body[0].name).to.be.equal(riceName)
     })
+    it('GET /api/allproducts/:riceId', async () => {
+      const res = await request(app)
+        .get(`/api/allproducts/1`)
+        .expect(200)
+
+      expect(res.body).to.be.an('object')
+      expect(res.body.name).to.be.equal(riceName)
+    })
   })
 })
 
