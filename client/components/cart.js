@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCart, deleteCart } from '../store/cartReducer';
-import {newOrderPosted} from '../store/orderReducer'
+import { newOrderPosted } from '../store/orderReducer'
+import {Button} from 'semantic-ui-react'
 class Cart extends Component {
 	constructor() {
 		super();
@@ -32,17 +33,17 @@ class Cart extends Component {
 							<div key={item.id}>
 								<li className="cart-item">{item.name}</li>
 								<div>Quantity: {item.quantity}</div>
-								<button type="submit" onClick={() => this.handleClick(item.id)} id="removeFromCart">
+								<Button type="submit" onClick={() => this.handleClick(item.id)} id="removeFromCart">
 									REMOVE FROM CART
-								</button>
+								</Button>
 							</div>
 						);
 					})}
 				</ul>
 				<div>SUBTOTAL: {subtotal}</div>
-				<button type="submit" onClick={() => this.handleSubmit(subtotal)} id="SubmitFromCart">
+				<Button type="submit" onClick={() => this.handleSubmit(subtotal)} id="SubmitFromCart">
 					Submit
-				</button>
+				</Button>
 			</div>
 		);
 	}

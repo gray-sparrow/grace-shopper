@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleRice } from '../store/singleRiceReducer';
 import { putCart } from '../store/cartReducer'
-import { Button } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 
 class SingleRice extends Component {
   constructor() {
@@ -32,7 +32,7 @@ class SingleRice extends Component {
 						<h4>Description: {singleRice.description}</h4>
 						<h3>Price: ${singleRice.price}</h3>
 					</div>
-					<Button type="submit" onClick={() => this.handleClick()} id="addCart">ADD TO CART </Button>
+					<Button type="submit" onClick={() => this.handleClick()} id="addCart">ADD TO CART <Icon name="add to cart"/></Button>
 				</div>
 			</div>
 		);
