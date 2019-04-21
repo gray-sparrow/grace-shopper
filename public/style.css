@@ -17,6 +17,7 @@ label {
 nav a {
   display: inline-block;
   margin: 1em;
+  padding: 10px;
 }
 
 form div {
@@ -28,11 +29,70 @@ form div {
   display: flex
 }
 
+#about div {
+  display: flex;
+  justify-content: center;
+}
+
+.home-title {
+  font-size: 80px;
+  color: white;
+  text-shadow: 1px 1px 3px black; 
+}
+
+.home-subtitle {
+  font-size: 30px;
+  color: white;
+  text-shadow: 1px 1px 3px black; 
+}
+
+#homepage-text {
+  text-align: center;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.homepage {
+  max-height: 600px;
+  max-width: 100%;
+}
+
 .riceIMG {
   height: 350px;
   width: 400px;
+  padding: 10px;
+}
+
+#product {
+  padding: 30px;
+}
+
+.allProducts {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  padding: 10px;
 }
 
 .cart-item {
   margin: 0 0 10px;
+}
+
+.singleProduct-page {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 1500px;
+  padding: 30px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
 }

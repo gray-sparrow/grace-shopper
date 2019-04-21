@@ -20,17 +20,21 @@ class SingleRice extends Component {
   render() {
     const {singleRice} = this.props
     return (
-      <div className="campus" key={singleRice.id}>
-        <h2>{singleRice.name}</h2>
-        <img className="riceIMG" src={singleRice.img} />
-        <div>
-          <h3>Price: {singleRice.price}</h3>
-          <h3>Type: {singleRice.type}</h3>
-          <h4>Description: {singleRice.description}</h4>
+      <div className="singleProduct-page" key={singleRice.id}>
+        <div className="product">
+          <img className="riceIMG" src={singleRice.img} />
         </div>
-        <button type="submit" onClick={() => this.handleClick()} id="addCart">
-          ADD TO CART
-        </button>
+        <div className="content">
+          <div>
+            <h2>{singleRice.name}</h2>
+            <h3>Type: {singleRice.type}</h3>
+            <h4>Description: {singleRice.description}</h4>
+            <h3>Price: ${singleRice.price}</h3>
+          </div>
+          <button type="submit" onClick={() => this.handleClick()} id="addCart">
+            ADD TO CART
+          </button>
+        </div>
       </div>
     )
   }
