@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
@@ -6,18 +6,18 @@ import { logout } from '../store'
 import {Icon} from 'semantic-ui-react'
 import {Login, Signup} from './auth-form'
 import {UserHome} from './user-home'
+import {me} from '../store/user'
 
 class Navbar extends Component {
-  constructor({handleClick, isLoggedIn}) {
-    super({handleClick, isLoggedIn})
-  }
 
   componentDidMount() {
     this.props.loadInitialData()
+    console.log('componentDidMount here!')
   }
 
   render () {
-  
+    const {isLoggedIn, handleClick} = this.props
+console.log('navbar is rendered here!', this.props)
     return(
       <div className="navBar">
         <h1 id="title"><Link to="/home">SHOP RICE</Link></h1>
@@ -25,7 +25,7 @@ class Navbar extends Component {
           {isLoggedIn ? (
             <div className="navBar-buttons">
               {/* The navbar will show these links after you log in */}
-              <div><UserHome /></div>
+              <div><UserHome user={this.props.user}/></div>
               <div>
                 <Link to="/home">Home</Link>
                 <a href="#" onClick={handleClick}>
@@ -70,7 +70,8 @@ class Navbar extends Component {
  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    user: state.user
   }
 }
 
@@ -78,6 +79,9 @@ const mapDispatch = dispatch => {
   return {
     handleClick() {
       dispatch(logout())
+    },
+    loadInitialData() {
+      dispatch(me())
     }
   }
 }
@@ -89,5 +93,6 @@ export default connect(mapState, mapDispatch)(Navbar)
  */
 Navbar.propTypes = {
   handleClick: PropTypes.func.isRequired,
+  loadInitialData: PropTypes.func.isRequired,
   isLoggedIn: PropTypes.bool.isRequired
 }
