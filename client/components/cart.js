@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchCart, deleteCart} from '../store/cartReducer'
 import {newOrderPosted} from '../store/orderReducer'
-import {Link} from 'react-router-dom'
 class Cart extends Component {
   constructor() {
     super()
@@ -12,6 +11,12 @@ class Cart extends Component {
   componentDidMount() {
     this.props.fetchCart()
   }
+
+  //  componentDidUpdate() {
+  //   if (this.props.orderInfo.id) {
+  //     this.props.history.push('/orders')
+  //   }
+  // }
 
   handleClick(itemId) {
     this.props.deleteCart(itemId)
@@ -24,7 +29,6 @@ class Cart extends Component {
   render() {
     const {cart} = this.props
     let subtotal = 0
-    console.log(this.props.orderInfo.id, 'orer id number')
     return (
       <div>
         <ul>
@@ -46,15 +50,20 @@ class Cart extends Component {
           })}
         </ul>
         <div>SUBTOTAL: {subtotal}</div>
-        <Link to="/orderCheckout" orderId={this.props.orderInfo.id}>
-          <button
-            type="submit"
-            onClick={() => this.handleSubmit(subtotal)}
-            id="SubmitFromCart"
-          >
-            Submit
-          </button>
-        </Link>
+        {/* <Link
+          to={{
+            pathname: `/orderCheckout`,
+            state: {orderId: this.props.orderInfo.id}
+          }}
+        > */}
+        <button
+          type="submit"
+          onClick={() => this.handleSubmit(subtotal)}
+          id="SubmitFromCart"
+        >
+          Submit
+        </button>
+        {/* </Link> */}
       </div>
     )
   }
@@ -62,8 +71,7 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
   return {
-    cart: state.cartReducer,
-    orderInfo: state.orderReducer
+    cart: state.cartReducer
   }
 }
 

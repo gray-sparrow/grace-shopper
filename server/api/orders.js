@@ -5,7 +5,11 @@ const {Order} = require('../db/models')
 
 router.get('/', async (req, res, next) => {
   try {
-    let orders = await Order.findAll()
+    let orders = await Order.findAll({
+      where: {
+        userId: req.session.passport.user
+      }
+    })
     res.json(orders)
   } catch (error) {
     next(error)
@@ -26,6 +30,7 @@ router.post('/', async (req, res, next) => {
   try {
     //create a newOrder object to hold my info
     let newOrderInfo
+    const price = req.body.price
     if (!req.session.cart.length) {
       res.sendStatus(422)
     } else {
@@ -35,14 +40,14 @@ router.post('/', async (req, res, next) => {
         newOrderInfo = {
           cart: req.session.cart,
           status: 'unpaid',
-          price: req.body.price,
+          price,
           sessionId: req.sessionID
         }
       } else {
         newOrderInfo = {
           cart: req.session.cart,
           status: 'unpaid',
-          price: req.body.price,
+          price,
           userId: req.session.passport.user
         }
       }

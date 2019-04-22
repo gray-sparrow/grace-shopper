@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import history from '../history'
 const POST_ORDER = 'POST_ORDER'
 const GET_ALL_ORDERS = 'GET_ALL_ORDERS'
 // const BUY_ORDER = 'BUY_ORDER'
@@ -34,8 +34,10 @@ export const newOrderPosted = subtotal => async dispatch => {
     //Making a post and returns the completed orderInfo
     const {data} = await axios.post(`/api/orders`, {price: subtotal})
     dispatch(postOrder(data))
+    history.push(`/orderCheckout/${data.id}`)
+    // await history.push(`/orders/${data.id}`)
   } catch (err) {
-    console.error('Error in thunk')
+    console.error('Error in thunk', err)
   }
 }
 
@@ -76,7 +78,6 @@ const initialState = {
 const orderReducer = (state = initialState, action) => {
   switch (action.type) {
     case POST_ORDER:
-      console.log(action.orderInfo, 'order info')
       return action.orderInfo
     case GET_ALL_ORDERS:
       return {...state, orders: action.orders}
