@@ -96,3 +96,8 @@ form div {
   padding: 20px;
   text-align: center;
 }
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
+}
