@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchCart, deleteCart} from '../store/cartReducer'
 import {newOrderPosted} from '../store/orderReducer'
-import { Link } from 'react-router-dom'
-import {Button} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
 class Cart extends Component {
   constructor() {
     super()
@@ -25,6 +24,7 @@ class Cart extends Component {
   render() {
     const {cart} = this.props
     let subtotal = 0
+    console.log(this.props.orderInfo.id, 'orer id number')
     return (
       <div>
         <ul>
@@ -34,25 +34,27 @@ class Cart extends Component {
               <div key={item.id}>
                 <li className="cart-item">{item.name}</li>
                 <div>Quantity: {item.quantity}</div>
-                <Button
+                <button
                   type="submit"
                   onClick={() => this.handleClick(item.id)}
                   id="removeFromCart"
                 >
                   REMOVE FROM CART
-                </Button>
+                </button>
               </div>
             )
           })}
         </ul>
         <div>SUBTOTAL: {subtotal}</div>
-        <Button
-          type="submit"
-          onClick={() => this.handleSubmit(subtotal)}
-          id="SubmitFromCart"
-        >
-          Submit
-        </Button>
+        <Link to="/orderCheckout" orderId={this.props.orderInfo.id}>
+          <button
+            type="submit"
+            onClick={() => this.handleSubmit(subtotal)}
+            id="SubmitFromCart"
+          >
+            Submit
+          </button>
+        </Link>
       </div>
     )
   }
@@ -60,7 +62,8 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
   return {
-    cart: state.cartReducer
+    cart: state.cartReducer,
+    orderInfo: state.orderReducer
   }
 }
 

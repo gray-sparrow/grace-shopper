@@ -2,19 +2,17 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 class OrderCheckout extends Component {
-    constructor(props) {
-        super(props) 
-    }
+  constructor(props) {
+    super(props)
+  }
 
-    render() {
-        return (
-            <div>Hello World!</div>
-        )
-    }
+  render() {
+    return <div>Hello World!</div>
+  }
 }
 
-const mSTP
+// const mapStateToProps;
 
-const mDTP
+// const mapDispatchToProps;
 
-export default connect(mSTP, mDTP)(OrderCheckout)
+export default OrderCheckout
