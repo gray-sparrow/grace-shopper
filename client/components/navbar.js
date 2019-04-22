@@ -7,7 +7,7 @@ import {Icon} from 'semantic-ui-react'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div>
-    <h1 id="title">SHOP RICE</h1>
+    <h1 id="title"><Link to="/home">SHOP RICE</Link></h1>
     <nav>
       {isLoggedIn ? (
         <div>
