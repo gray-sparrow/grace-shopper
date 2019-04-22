@@ -76,6 +76,7 @@ const initialState = {
 const orderReducer = (state = initialState, action) => {
   switch (action.type) {
     case POST_ORDER:
+      console.log(action.orderInfo, 'order info')
       return action.orderInfo
     case GET_ALL_ORDERS:
       return {...state, orders: action.orders}

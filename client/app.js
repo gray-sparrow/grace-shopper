@@ -7,6 +7,7 @@ import SingleRice from './components/single-rice'
 import Cart from './components/cart'
 import AllOrders from './components/AllOrders'
 import SingleOrder from './components/SingleOrder'
+import OrderCheckout from './components/OrderCheckout'
 const App = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const App = () => {
         <Route exact path="/cart" component={Cart} />
         <Route exact path="/orders" component={AllOrders} />
         <Route exact path="/orders/:id" component={SingleOrder} />
+        <Route exact path="/orderCheckout" component={OrderCheckout} />
         <Route path="/" component={AllRice} />
       </Switch>
     </div>

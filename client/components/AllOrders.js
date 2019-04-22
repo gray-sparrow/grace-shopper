@@ -36,10 +36,10 @@ class AllOrders extends Component {
   }
 }
 
-const mSTP = state => state.orderReducer
+const mapStateToProps = state => state.orderReducer
 
-const mDTP = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   getAllOrders: () => dispatch(getAllOrders())
 })
 
-export default connect(mSTP, mDTP)(AllOrders)
+export default connect(mapStateToProps, mapDispatchToProps)(AllOrders)

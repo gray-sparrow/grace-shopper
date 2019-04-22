@@ -31,10 +31,10 @@ class SingleOrder extends Component {
   }
 }
 
-const mSTP = state => state.orderReducer
+const mapStateToProps = state => state.orderReducer
 
-const mDTP = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   getOrder: id => dispatch(getOrder(id))
 })
 
-export default connect(mSTP, mDTP)(SingleOrder)
+export default connect(mapStateToProps, mapDispatchToProps)(SingleOrder)
