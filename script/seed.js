@@ -37,7 +37,7 @@ async function seed() {
       type: 'Long-Grain Brown Jasmine Rice',
       origin: 'Thailand',
       img: '/brownrice.jpg',
-      description: 'Brown jasmine rice retains the light tan outer layer on the rice grain.[12] It has greater health benefits than white jasmine rice because it still has the bran.'
+      description: 'Brown jasmine rice retains the light tan outer layer on the rice grain. It has greater health benefits than white jasmine rice because it still has the bran.'
     }),
     Rice.create({
       name: 'Jasmine Rice',
@@ -45,7 +45,7 @@ async function seed() {
       type: 'Short-grain Brown Jasmine Rice',
       origin: 'Thailand',
       img: '/shortgrainbrownrice.jpg',
-      description: 'Brown jasmine rice retains the light tan outer layer on the rice grain.[12] It has greater health benefits than white jasmine rice because it still has the bran.'
+      description: 'Brown jasmine rice retains the light tan outer layer on the rice grain. It has greater health benefits than white jasmine rice because it still has the bran.'
     }),
     Rice.create({
       name: 'Black Rice',
