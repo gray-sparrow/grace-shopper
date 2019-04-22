@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchSingleRice } from '../store/singleRiceReducer';
-import { putCart } from '../store/cartReducer'
-import { Button, Icon } from 'semantic-ui-react'
-=======
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchSingleRice} from '../store/singleRiceReducer'
-import {putCart} from '../store/cartReducer'
->>>>>>> master
+import { putCart } from '../store/cartReducer'
+import { Button, Icon } from 'semantic-ui-react'
 
 class SingleRice extends Component {
   constructor() {
@@ -25,27 +18,6 @@ class SingleRice extends Component {
     this.props.fetchSingleRice(this.props.match.params.riceId)
   }
 
-<<<<<<< HEAD
-	render() {
-		const { singleRice } = this.props;
-		return (
-			<div className="singleProduct-page" key={singleRice.id}>
-				<div className="product">
-					<img className="riceIMG" src={singleRice.img} />
-				</div>
-				<div className="content">
-					<div>
-						<h2>{singleRice.name}</h2>
-						<h3>Type: {singleRice.type}</h3>
-						<h4>Description: {singleRice.description}</h4>
-						<h3>Price: ${singleRice.price}</h3>
-					</div>
-					<Button type="submit" onClick={() => this.handleClick()} id="addCart">ADD TO CART <Icon name="add to cart"/></Button>
-				</div>
-			</div>
-		);
-	}
-=======
   render() {
     const {singleRice} = this.props
     return (
@@ -60,14 +32,13 @@ class SingleRice extends Component {
             <h4>Description: {singleRice.description}</h4>
             <h3>Price: ${singleRice.price}</h3>
           </div>
-          <button type="submit" onClick={() => this.handleClick()} id="addCart">
-            ADD TO CART
-          </button>
+          <Button type="submit" onClick={() => this.handleClick()} id="addCart">
+            ADD TO CART <Icon name="cart"/>
+          </Button>
         </div>
       </div>
     )
   }
->>>>>>> master
 }
 
 const mapStateToProps = state => {
