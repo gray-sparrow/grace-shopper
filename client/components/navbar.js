@@ -17,7 +17,7 @@ class Navbar extends Component {
 
   render () {
     const {isLoggedIn, handleClick} = this.props
-console.log('navbar is rendered here!', this.props)
+    console.log('navbar is rendered here!', this.props)
     return(
       <div className="navBar">
         <h1 id="title"><Link to="/home">SHOP RICE</Link></h1>
