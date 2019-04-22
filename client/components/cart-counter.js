@@ -9,6 +9,7 @@ class CartCounter extends Component {
   }
   render() {
     const { cart } = this.props
+    console.log(cart)
     let currentTotal = 0;
     cart.map(item => {currentTotal += item.quantity})
     return <div><Icon name="cart"></Icon>Cart | {currentTotal}</div>
