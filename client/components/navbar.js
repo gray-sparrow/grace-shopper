@@ -5,22 +5,26 @@ import {Link} from 'react-router-dom'
 import { logout } from '../store'
 import {Icon} from 'semantic-ui-react'
 import {Login, Signup} from './auth-form'
+import {UserHome} from './user-home'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
+  <div className="navBar">
     <h1 id="title"><Link to="/home">SHOP RICE</Link></h1>
     <nav>
       {isLoggedIn ? (
-        <div>
+        <div className="navBar-buttons">
           {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-          <Link to="/cart">Cart</Link>
+          <div><UserHome /></div>
+          <div>
+            <Link to="/home">Home</Link>
+            <a href="#" onClick={handleClick}>
+              Logout
+            </a>
+            <Link to="/cart">Cart</Link>
+          </div>
         </div>
       ) : (
-        <div>
+        <div className="navBar-buttons">
           {/* The navbar will show these links before you log in */}
           <div className="ui compact menu">
             <div className="ui simple dropdown item">
