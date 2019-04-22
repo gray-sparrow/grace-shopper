@@ -21,7 +21,7 @@ describe('Cart routes', () => {
       const res = await request(app)
         .put('/api/cart')
         .send({productId: 1, quantity: 2})
-        .expect(202)
+        .expect(200)
       expect(res.body).to.be.an('array')
     })
   })
