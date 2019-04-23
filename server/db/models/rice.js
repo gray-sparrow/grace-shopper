@@ -10,6 +10,10 @@ const Rice = db.define('rice', {
     type: Sequelize.INTEGER,
     allowNull: false
   },
+  origin: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   type: {
     type: Sequelize.STRING,
     allowNull: false

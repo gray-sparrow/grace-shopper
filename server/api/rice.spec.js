@@ -18,6 +18,7 @@ describe('Rice routes', () => {
       return Rice.create({
         name: 'Jasmine Rice',
         price: 2,
+        origin: 'Hawaii',
         type: 'White Jasmine Rice',
         img: '/jasminerice.jpg',
         description: 'White jasmine rice is white, has a jasmine flower aroma and, when cooked, a slightly sticky texture. The aroma is caused by the evaporation of 2-Acetyl-1-pyrroline.'
