@@ -12,12 +12,10 @@ class Navbar extends Component {
 
   componentDidMount() {
     this.props.loadInitialData()
-    console.log('componentDidMount here!')
   }
 
   render () {
     const {isLoggedIn, handleClick} = this.props
-    console.log('navbar is rendered here!', this.props)
     return(
       <div className="navBar">
         <h1 id="title"><Link to="/home">SHOP RICE</Link></h1>
