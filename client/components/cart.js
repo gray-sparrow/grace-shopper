@@ -3,7 +3,8 @@ import {connect} from 'react-redux'
 import {fetchCart, deleteCart} from '../store/cartReducer'
 import {newOrderPosted} from '../store/orderReducer'
 import { Link } from 'react-router-dom'
-import {Button} from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
+
 class Cart extends Component {
   constructor() {
     super()
