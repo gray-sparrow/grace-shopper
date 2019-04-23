@@ -15,12 +15,6 @@ class Cart extends Component {
     this.props.fetchCart()
   }
 
-  //  componentDidUpdate() {
-  //   if (this.props.orderInfo.id) {
-  //     this.props.history.push('/orders')
-  //   }
-  // }
-
   handleClick(itemId) {
     this.props.deleteCart(itemId)
   }
@@ -53,12 +47,6 @@ class Cart extends Component {
           })}
         </ul>
         <div>SUBTOTAL: {subtotal}</div>
-        {/* <Link
-          to={{
-            pathname: `/orderCheckout`,
-            state: {orderId: this.props.orderInfo.id}
-          }}
-        > */}
         <button
           type="submit"
           onClick={() => this.handleSubmit(subtotal)}
@@ -66,7 +54,6 @@ class Cart extends Component {
         >
           Submit
         </button>
-        {/* </Link> */}
       </div>
     )
   }

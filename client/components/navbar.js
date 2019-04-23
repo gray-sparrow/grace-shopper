@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import { logout } from '../store'
+import {logout} from '../store'
 import {Icon} from 'semantic-ui-react'
 import {Login, Signup} from './auth-form'
 import {UserHome} from './user-home'
@@ -10,31 +10,34 @@ import {me} from '../store/user'
 import CartCounter from './cart-counter'
 
 class Navbar extends Component {
-
   componentDidMount() {
     this.props.loadInitialData()
   }
 
-  render () {
+  render() {
     const {isLoggedIn, handleClick} = this.props
-    return(
+    return (
       <div className="navBar">
-
         <nav>
-        <h1 id="title"><Link to="/home">SHOP RICE</Link></h1>
+          <h1 id="title">
+            <Link to="/home">SHOP RICE</Link>
+          </h1>
           {isLoggedIn ? (
             <div className="navBar-buttons">
               {/* The navbar will show these links after you log in */}
-              <div><UserHome user={this.props.user}/></div>
+              <div>
+                <UserHome user={this.props.user} />
+              </div>
+              <Link to="/orders">Order History</Link>
               <div>
                 <Link to="/home">Home</Link>
                 <a href="#" onClick={handleClick}>
                   Logout
                 </a>
               </div>
-                <Link to="/cart">
-						      <CartCounter />
-					      </Link>
+              <Link to="/cart">
+                <CartCounter />
+              </Link>
             </div>
           ) : (
             <div className="navBar-buttons">
@@ -57,11 +60,11 @@ class Navbar extends Component {
                   </div>
                 </div>
                 <Link to="/cart">
-						      <CartCounter />
-					      </Link>
+                  <CartCounter />
+                </Link>
               </div>
             </div>
-            )}
+          )}
         </nav>
         <hr />
       </div>
@@ -121,7 +124,7 @@ const mapDispatch = dispatch => {
   }
 }
 
-export default connect(mapState, mapDispatch)(Navbar);
+export default connect(mapState, mapDispatch)(Navbar)
 
 /**
  * PROP TYPES

@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import SingleOrder from '../components/SingleOrder'
-import {getOrder} from '../store/orderReducer'
+import {buyOrder} from '../store/orderReducer'
 class OrderCheckout extends Component {
   constructor(props) {
     super(props)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
-  // componentDidMount() {
-  //   this.props.getOrder(this.props.match.params.id)
-  // }
+
+  handleSubmit() {
+    this.props.buyOrder(this.props.match.params.id)
+  }
+
   render() {
-    console.log(this.props)
     return !this.props.cart ? (
       <div>Loading!</div>
     ) : (
@@ -21,10 +23,17 @@ class OrderCheckout extends Component {
         <h2>Cart: </h2>
         {this.props.cart.map(item => (
           <div key={item.id}>
-            <h3>{item.quantity}</h3>
             <h3>{item.name}</h3>
+            <h3>{item.quantity}</h3>
           </div>
         ))}
+        <button
+          type="submit"
+          onClick={() => this.handleSubmit()}
+          id="OrderProcess"
+        >
+          Process Order
+        </button>
       </div>
     )
   }
@@ -32,8 +41,8 @@ class OrderCheckout extends Component {
 
 const mapStateToProps = state => state.orderReducer
 
-// const mapDispatchToProps = dispatch => ({
-//   getOrder: id => dispatch(getOrder(id))
-// })
+const mapDispatchToProps = dispatch => ({
+  buyOrder: id => dispatch(buyOrder(id))
+})
 
-export default connect(mapStateToProps)(OrderCheckout)
+export default connect(mapStateToProps, mapDispatchToProps)(OrderCheckout)
