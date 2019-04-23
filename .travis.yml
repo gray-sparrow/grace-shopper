@@ -24,6 +24,6 @@ before_deploy:
 deploy:
   skip_cleanup: true # prevents travis from deleting the build
   provider: heroku
-  app: graceshopper-shoprice # see README
+  app: "graceshopper-shoprice" # see README
   api_key:
     secure: "O3c9zWD3SHpXwjJzyZGS1vm16ZcLQf9/v0Vx7+1tdDQ1PXFa5o5o20aqTWVB/nioFG+Od4EyL2IJM+Aj5oMvUeciXpnQYb2qXnWypT5NtGKjzIjBTpcTLv48NktL5bDQRvAlxJloJjH1VAlq/sNJDYAMjK39ewEVHkQqKSW9IEvIXQSuDizra7fXgr1se6kX+PeFKoPVEISsGQHyhsADOYI91prdiy+aYKJY3fSkspU5IPHy51mxgmkbs/tUR4GeZRczEdbtzmLDLIVCozOy1pp8nmLHN4W7Wub0yubQu4gemjVOA24NFg5fW2HuDe2TwMQwxr04NKXKMa+tL1epT3c4i42Nx1bnRLJsl0dK2DPETl93duZ+IUWyND1cvLn9ZpYQUff2w9JGlgHIiflZ/84e4eQtfY2Y5qvlOCIHaDABPWW58e0omjoNjyVZBkYKIGwMG3Jr2iqN/Hk6Egj6UWxa6p4E7CZp9N1HYvbOtTQJUnCQugWAYSCRKrDrifoSCzy4/J59f0ot3d3r+0ElCTdrX9OyrGAI1C+dX+KQ/KWSxV6Jv7vstqDsrG/IBvIo6Kb88C5TCNwkEP5Wb7xzImqIpoxL2zqboKFF/sFa1RWTMunrppqcPcm4WlBCPISn26xEZWcqbAGZilL7wMd0uodDilAqOvhbgVAAmFRz/D0=" # see README
