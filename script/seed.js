@@ -17,39 +17,47 @@ async function seed() {
   const rice = await Promise.all([
     Rice.create({
       name: 'Wild Rice',
-      price: 1,
+      price: 35,
       type: 'Northern Wild Rice',
       origin: 'North America, India, China',
       img: '/wildrice.jpg',
       description: 'Northern wild rice (Zizania palustris) is an annual plant native to the Great Lakes region of North America, the aquatic areas of the Boreal Forest regions of Northern Ontario, Alberta, Saskatchewan and Manitoba in Canada and Minnesota, Wisconsin, Michigan and Idaho in the US.'
     }),
     Rice.create({
-      name: 'Jasmine Rice',
-      price: 2,
-      type: 'White Jasmine Rice',
+      name: 'White Jasmine Rice',
+      price: 15,
+      type: 'Long-Grain White Jasmine Rice',
       origin: 'Thailand',
       img: '/jasminerice.jpg',
       description: 'White jasmine rice is white, has a jasmine flower aroma and, when cooked, a slightly sticky texture. The aroma is caused by the evaporation of 2-Acetyl-1-pyrroline.'
     }),
     Rice.create({
-      name: 'Jasmine Rice',
-      price: 2,
+      name: 'Brown Jasmine Rice',
+      price: 18,
       type: 'Long-Grain Brown Jasmine Rice',
       origin: 'Thailand',
       img: '/brownrice.jpg',
       description: 'Brown jasmine rice retains the light tan outer layer on the rice grain. It has greater health benefits than white jasmine rice because it still has the bran.'
     }),
     Rice.create({
-      name: 'Jasmine Rice',
-      price: 2,
-      type: 'Short-grain Brown Jasmine Rice',
-      origin: 'Thailand',
-      img: '/shortgrainbrownrice.jpg',
-      description: 'Brown jasmine rice retains the light tan outer layer on the rice grain. It has greater health benefits than white jasmine rice because it still has the bran.'
+      name: 'White Basmati Rice',
+      price: 15,
+      type: 'Long-grain White Basmati Rice',
+      origin: 'India',
+      img: '/basmatirice.jpg',
+      description: 'Basmati is a variety of long, slender-grained aromatic rice. Cooked grains of Basmati rice are characteristically free flowing rather than sticky. Structurally, basmati rice has the longest grains of any rice, and it is known for lengthening during cooking.'
+    }),
+    Rice.create({
+      name: 'Brown Basmati Rice',
+      price: 18,
+      type: 'Long-grain Brown Basmati Rice',
+      origin: 'India',
+      img: '/basmatirice.jpg',
+      description: 'Basmati is a variety of long, slender-grained aromatic rice. Cooked grains of Basmati rice are characteristically free flowing rather than sticky. Brown basmati also has a more nutty flavor and a firmer texture than white.'
     }),
     Rice.create({
       name: 'Black Rice',
-      price: 2,
+      price: 20,
       type: 'Philippines Black Rice',
       origin: 'Philippines',
       img: '/blackrice.jpg',
@@ -57,7 +65,7 @@ async function seed() {
     }),
     Rice.create({
       name: 'Kerala Matta Rice',
-      price: 2,
+      price: 35,
       type: 'Kerala Matta Rice',
       origin: 'India',
       img: '/keralamatta.jpg',
