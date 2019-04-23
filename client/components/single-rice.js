@@ -29,8 +29,9 @@ class SingleRice extends Component {
           <div>
             <h2>{singleRice.name}</h2>
             <h3>Type: {singleRice.type}</h3>
+            <h3>Origin: {singleRice.origin} </h3>
             <h4>Description: {singleRice.description}</h4>
-            <h3>Price: ${singleRice.price}</h3>
+            <h3>Price (per 10 pound bag): ${singleRice.price}</h3>
           </div>
           <Button type="submit" onClick={() => this.handleClick()} id="addCart">
             ADD TO CART <Icon name="cart"/>

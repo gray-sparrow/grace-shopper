@@ -7,7 +7,8 @@ router.get('/', async (req, res, next) => {
   try {
     let orders = await Order.findAll({
       where: {
-        userId: req.session.passport.user
+        userId: req.session.passport.user,
+        status: 'paid'
       }
     })
     res.json(orders)
