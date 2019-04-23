@@ -10,27 +10,27 @@ import {Button, Form} from 'semantic-ui-react'
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
 
-  return (
+  return (      
     <div>
-      <Form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <Button type="submit">{displayName}</Button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </Form>
-      <a href="/auth/google">{displayName} with Google</a>
+        <Form onSubmit={handleSubmit} name={name} className="formInputs">
+          <div>
+            <label htmlFor="email">
+              <small>Email</small>
+            </label>
+            <input name="email" type="text" />
+          </div>
+          <div>
+            <label htmlFor="password">
+              <small>Password</small>
+            </label>
+            <input name="password" type="password" />
+          </div>
+          <div>
+            <Button type="submit">{displayName}</Button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
+        </Form>
+        <a href="/auth/google">{displayName} with Google</a>
     </div>
   )
 }

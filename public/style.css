@@ -14,8 +14,13 @@ label {
   display: block;
 }
 
+.navBar-buttons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 30px 0px 0px;
+}
+
 nav a {
-  display: inline-block;
   margin: 1em;
   padding: 10px;
 }
@@ -23,10 +28,6 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
-}
-
-#title {
-  display: flex
 }
 
 #about div {
@@ -52,11 +53,11 @@ form div {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -75%);
 }
 
 .homepage {
-  max-height: 600px;
+  max-height: 500px;
   max-width: 100%;
 }
 
@@ -95,4 +96,10 @@ form div {
   flex: 1;
   padding: 20px;
   text-align: center;
+}
+
+.formInputs {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
