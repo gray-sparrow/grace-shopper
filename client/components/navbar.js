@@ -18,8 +18,9 @@ class Navbar extends Component {
     const {isLoggedIn, handleClick} = this.props
     return(
       <div className="navBar">
-        <h1 id="title"><Link to="/home">SHOP RICE</Link></h1>
+
         <nav>
+        <h1 id="title"><Link to="/home">SHOP RICE</Link></h1>
           {isLoggedIn ? (
             <div className="navBar-buttons">
               {/* The navbar will show these links after you log in */}

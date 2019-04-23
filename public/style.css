@@ -21,7 +21,6 @@ label {
 }
 
 nav a {
-  display: inline-block;
   margin: 1em;
   padding: 10px;
 }
@@ -29,10 +28,6 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
-}
-
-#title {
-  display: flex
 }
 
 #about div {
