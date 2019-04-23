@@ -17,50 +17,66 @@ async function seed() {
   const rice = await Promise.all([
     Rice.create({
       name: 'Wild Rice',
-      price: 1,
+      price: 35,
       type: 'Northern Wild Rice',
-      origin: 'North America, India, China',
-      img: '/wildrice.jpg',
-      description: 'Northern wild rice (Zizania palustris) is an annual plant native to the Great Lakes region of North America, the aquatic areas of the Boreal Forest regions of Northern Ontario, Alberta, Saskatchewan and Manitoba in Canada and Minnesota, Wisconsin, Michigan and Idaho in the US.'
+      origin: 'United States',
+      img: '/pictures/wildrice.jpg',
+      description: 'Wild rice is actually a grass! Commonly grown in wetlands in and around lakes, rivers, and bays, this woodsy enigma has origins in the upper Great Lakes region of the United States. When cooked, the skin splits open and the grain curls up to reveal a white interior, resulting in a unique texture we can’t enough of. Wild rice boasts a toasty flavor akin to black tea. Try making a vegetable pilaf or mixing with nuts and dried fruits for an epic side dish.'
     }),
     Rice.create({
-      name: 'Jasmine Rice',
-      price: 2,
-      type: 'White Jasmine Rice',
+      name: 'White Jasmine Rice',
+      price: 15,
+      type: 'Long-Grain White Jasmine Rice',
       origin: 'Thailand',
-      img: '/jasminerice.jpg',
+      img: '/pictures/jasminerice.jpg',
       description: 'White jasmine rice is white, has a jasmine flower aroma and, when cooked, a slightly sticky texture. The aroma is caused by the evaporation of 2-Acetyl-1-pyrroline.'
     }),
     Rice.create({
-      name: 'Jasmine Rice',
-      price: 2,
+      name: 'Brown Jasmine Rice',
+      price: 18,
       type: 'Long-Grain Brown Jasmine Rice',
       origin: 'Thailand',
-      img: '/brownrice.jpg',
+      img: '/pictures/brownrice.jpg',
       description: 'Brown jasmine rice retains the light tan outer layer on the rice grain. It has greater health benefits than white jasmine rice because it still has the bran.'
     }),
     Rice.create({
-      name: 'Jasmine Rice',
-      price: 2,
-      type: 'Short-grain Brown Jasmine Rice',
-      origin: 'Thailand',
-      img: '/shortgrainbrownrice.jpg',
-      description: 'Brown jasmine rice retains the light tan outer layer on the rice grain. It has greater health benefits than white jasmine rice because it still has the bran.'
+      name: 'White Basmati Rice',
+      price: 15,
+      type: 'Long-grain White Basmati Rice',
+      origin: 'India',
+      img: '/pictures/basmatiwhite.jpg',
+      description: 'Basmati is a variety of long, slender-grained aromatic rice. Cooked grains of Basmati rice are characteristically free flowing rather than sticky. Structurally, basmati rice has the longest grains of any rice, and it is known for lengthening during cooking.'
+    }),
+    Rice.create({
+      name: 'Brown Basmati Rice',
+      price: 18,
+      type: 'Long-grain Brown Basmati Rice',
+      origin: 'India',
+      img: '/pictures/basmatibrown.jpg',
+      description: 'Basmati is a variety of long, slender-grained aromatic rice. Cooked grains of Basmati rice are characteristically free flowing rather than sticky. Brown basmati also has a more nutty flavor and a firmer texture than white.'
     }),
     Rice.create({
       name: 'Black Rice',
-      price: 2,
+      price: 20,
       type: 'Philippines Black Rice',
       origin: 'Philippines',
-      img: '/blackrice.jpg',
+      img: '/pictures/blackrice.jpg',
       description: 'Black rice, also known as “forbidden rice” or “emperor’s rice,” was an exclusive food fed only to emperors in China. It owes its color to its high level of anthocyanin, the same antioxidant found in eggplant, blueberries, and purple corn. Rich in nutrients, this gorgeous and flavorful medium-grain rice is frequently used in Asian cuisine. You can also blend it with brown rice to make a sweet coconut rice pudding.'
     }),
     Rice.create({
+      name: 'Arborio Rice',
+      price: 20,
+      type: 'Italian Short-grain Rice',
+      origin: 'United States',
+      img: '/pictures/arborio.jpg',
+      description: 'An Italian short grain, Arborio rice is large, bold, and marked with a unique white dot in the center. It is often used for risotto since it can absorb liquid and flavor over slow cooking. The result? Unmatched creamy texture with a chewy core. Since it holds its shape so well, it is also suited to making arancini, or fried rice balls. Likewise, we like the way it plumps up and naturally thickens minestrone.'
+    }),
+    Rice.create({
       name: 'Kerala Matta Rice',
-      price: 2,
+      price: 35,
       type: 'Kerala Matta Rice',
       origin: 'India',
-      img: '/keralamatta.jpg',
+      img: '/pictures/keralamatta.jpg',
       description: 'Grown in India, matta or rosematta rice is a medium grain with a reddish color. Its bran layer is full of natural nutrients. Known for its robust earthy flavor, this variety calls for meaty accompaniments like lamb, beef, or game. It is well suited to slow-cooking stews and rich curries.'
     })
   ])

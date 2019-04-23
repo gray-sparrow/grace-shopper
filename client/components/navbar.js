@@ -26,15 +26,13 @@ class Navbar extends Component {
             <div className="navBar-buttons">
               {/* The navbar will show these links after you log in */}
               <div><UserHome user={this.props.user}/></div>
-              <div>
-                <Link to="/home">Home</Link>
-                <a href="#" onClick={handleClick}>
-                  Logout
-                </a>
-              </div>
-                <Link to="/cart">
-						      <CartCounter />
-					      </Link>
+              <Link to="/home">Home</Link>
+              <a href="#" onClick={handleClick}>
+                Logout
+              </a>
+              <Link to="/cart">
+					      <CartCounter />
+				      </Link>
             </div>
           ) : (
             <div className="navBar-buttons">
@@ -69,37 +67,6 @@ class Navbar extends Component {
   }
 }
 
-// const Navbar = ({ handleClick, isLoggedIn }) => (
-// 	<div>
-// 		<h1 id="title">
-// 			<Link to="/home">SHOP RICE</Link>
-// 		</h1>
-// 		<nav>
-// 			{isLoggedIn ? (
-// 				<div>
-// 					{/* The navbar will show these links after you log in */}
-// 					<Link to="/home">Home</Link>
-// 					<a href="#" onClick={handleClick}>
-// 						Logout
-// 					</a>
-// 					<Link to="/cart">
-// 						<CartCounter />
-// 					</Link>
-// 				</div>
-// 			) : (
-// 				<div>
-// 					{/* The navbar will show these links before you log in */}
-// 					<Link to="/login">Login</Link>
-// 					<Link to="/signup">Sign Up</Link>
-// 					<Link to="/cart">
-// 						<CartCounter />
-// 					</Link>
-// 				</div>
-// 			)}
-// 		</nav>
-// 		<hr />
-// 	</div>
-// );
 /**
  * CONTAINER
  */
