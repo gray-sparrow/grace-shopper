@@ -10,17 +10,18 @@ class OrderCheckout extends Component {
     this.props.getOrder(this.props.match.params.id)
   }
   render() {
-    const {order} = this.props
-    console.log('HELLO WORLD')
-    return !this.props.order.cart ? (
+    // return <div>Hello eric!</div>
+    // const {order} = this.props
+    console.log(this.props)
+    return !this.props.cart ? (
       <div>Loading!</div>
     ) : (
       <div>
-        <h2>Price: {order.price}</h2>
-        <h2>Order Status: {order.status}</h2>
-        <h2>Order Number: {order.id}</h2>
+        <h2>Price: {this.props.price}</h2>
+        <h2>Order Status: {this.props.status}</h2>
+        <h2>Order Number: {this.props.id}</h2>
         <h2>Cart: </h2>
-        {order.cart.map(item => (
+        {this.props.cart.map(item => (
           <div key={item.id}>
             <h3>{item.quantity}</h3>
             <h3>{item.name}</h3>

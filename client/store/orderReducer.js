@@ -35,7 +35,6 @@ export const newOrderPosted = subtotal => async dispatch => {
     const {data} = await axios.post(`/api/orders`, {price: subtotal})
     dispatch(postOrder(data))
     history.push(`/orderCheckout/${data.id}`)
-    // await history.push(`/orders/${data.id}`)
   } catch (err) {
     console.error('Error in thunk', err)
   }
