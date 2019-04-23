@@ -2,6 +2,12 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchCart, deleteCart} from '../store/cartReducer'
 import {newOrderPosted} from '../store/orderReducer'
+<<<<<<< HEAD
+=======
+import { Link } from 'react-router-dom'
+import { Button } from 'semantic-ui-react'
+
+>>>>>>> master
 class Cart extends Component {
   constructor() {
     super()
