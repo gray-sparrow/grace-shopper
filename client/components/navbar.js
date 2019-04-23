@@ -1,83 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import React from 'react'
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../store'
-import {Icon} from 'semantic-ui-react'
-
-const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <h1 id="title">
-      <Link to="/home">SHOP RICE</Link>
-    </h1>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-          <Link to="/cart">Cart</Link>
-          <Link to="/orders">Order History</Link>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/cart">
-            <Icon name="cart" />Cart
-          </Link>
-        </div>
-      )}
-    </nav>
-    <hr />
-  </div>
-)
-=======
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { logout } from '../store';
-import CartCounter from './cart-counter';
-
-const Navbar = ({ handleClick, isLoggedIn }) => (
-	<div>
-		<h1 id="title">
-			<Link to="/home">SHOP RICE</Link>
-		</h1>
-		<nav>
-			{isLoggedIn ? (
-				<div>
-					{/* The navbar will show these links after you log in */}
-					<Link to="/home">Home</Link>
-					<a href="#" onClick={handleClick}>
-						Logout
-					</a>
-					<Link to="/cart">
-						<CartCounter />
-					</Link>
-				</div>
-			) : (
-				<div>
-					{/* The navbar will show these links before you log in */}
-					<Link to="/login">Login</Link>
-					<Link to="/signup">Sign Up</Link>
-					<Link to="/cart">
-						<CartCounter />
-					</Link>
-				</div>
-			)}
-		</nav>
-		<hr />
-	</div>
-);
->>>>>>> master
-=======
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
@@ -90,7 +10,6 @@ import {me} from '../store/user'
 import CartCounter from './cart-counter'
 
 class Navbar extends Component {
->>>>>>> master
 
   componentDidMount() {
     this.props.loadInitialData()

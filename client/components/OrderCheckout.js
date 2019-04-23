@@ -6,12 +6,10 @@ class OrderCheckout extends Component {
   constructor(props) {
     super(props)
   }
-  componentDidMount() {
-    this.props.getOrder(this.props.match.params.id)
-  }
+  // componentDidMount() {
+  //   this.props.getOrder(this.props.match.params.id)
+  // }
   render() {
-    // return <div>Hello eric!</div>
-    // const {order} = this.props
     console.log(this.props)
     return !this.props.cart ? (
       <div>Loading!</div>
@@ -34,8 +32,8 @@ class OrderCheckout extends Component {
 
 const mapStateToProps = state => state.orderReducer
 
-const mapDispatchToProps = dispatch => ({
-  getOrder: id => dispatch(getOrder(id))
-})
+// const mapDispatchToProps = dispatch => ({
+//   getOrder: id => dispatch(getOrder(id))
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(OrderCheckout)
+export default connect(mapStateToProps)(OrderCheckout)
