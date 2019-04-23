@@ -25,30 +25,17 @@ class Navbar extends Component {
           {isLoggedIn ? (
             <div className="navBar-buttons">
               {/* The navbar will show these links after you log in */}
-<<<<<<< HEAD
               <div>
                 <UserHome user={this.props.user} />
               </div>
-              <Link to="/orders">Order History</Link>
-              <div>
-                <Link to="/home">Home</Link>
-                <a href="#" onClick={handleClick}>
-                  Logout
-                </a>
-              </div>
-              <Link to="/cart">
-                <CartCounter />
-              </Link>
-=======
-              <div><UserHome user={this.props.user}/></div>
               <Link to="/home">Home</Link>
+              <Link to="/orders">Order History</Link>
               <a href="#" onClick={handleClick}>
                 Logout
               </a>
               <Link to="/cart">
-					      <CartCounter />
-				      </Link>
->>>>>>> master
+                <CartCounter />
+              </Link>
             </div>
           ) : (
             <div className="navBar-buttons">
