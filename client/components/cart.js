@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchCart, deleteCart} from '../store/cartReducer'
 import {newOrderPosted} from '../store/orderReducer'
-import { Link } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
+import {Button} from 'semantic-ui-react'
 
 class Cart extends Component {
   constructor() {
@@ -35,25 +35,25 @@ class Cart extends Component {
               <div key={item.id}>
                 <li className="cart-item">{item.name}</li>
                 <div>Quantity: {item.quantity}</div>
-                <Button
+                <button
                   type="submit"
                   onClick={() => this.handleClick(item.id)}
                   id="removeFromCart"
                 >
                   REMOVE FROM CART
-                </Button>
+                </button>
               </div>
             )
           })}
         </ul>
         <div>SUBTOTAL: {subtotal}</div>
-        <Button
+        <button
           type="submit"
           onClick={() => this.handleSubmit(subtotal)}
           id="SubmitFromCart"
         >
           Submit
-        </Button>
+        </button>
       </div>
     )
   }

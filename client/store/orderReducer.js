@@ -1,8 +1,8 @@
 import axios from 'axios'
-
+import history from '../history'
 const POST_ORDER = 'POST_ORDER'
 const GET_ALL_ORDERS = 'GET_ALL_ORDERS'
-// const BUY_ORDER = 'BUY_ORDER'
+const BUY_ORDER = 'BUY_ORDER'
 const GET_ORDER = 'GET_ORDER'
 
 const postOrder = orderInfo => {
@@ -23,10 +23,10 @@ const gotOrder = order => ({
   order
 })
 
-// const boughtOrder = order => ({
-//   type: boughtOrder,
-//   order
-// })
+const boughtOrder = id => ({
+  type: boughtOrder,
+  id
+})
 
 //THUNK
 export const newOrderPosted = subtotal => async dispatch => {
@@ -34,8 +34,9 @@ export const newOrderPosted = subtotal => async dispatch => {
     //Making a post and returns the completed orderInfo
     const {data} = await axios.post(`/api/orders`, {price: subtotal})
     dispatch(postOrder(data))
+    history.push(`/orderCheckout/${data.id}`)
   } catch (err) {
-    console.error('Error in thunk')
+    console.error('Error in thunk', err)
   }
 }
 
@@ -57,14 +58,15 @@ export const getOrder = id => async dispatch => {
   }
 }
 
-// export const buyOrder = id => async dispatch => {
-//   try {
-//     const {data} = await axios.put(`/api/orders/${id}`)
-//     dispatch(boughtOrder(data))
-//   } catch (error) {
-//     console.log('Buy order thunk failed!')
-//   }
-// }
+export const buyOrder = id => async dispatch => {
+  try {
+    const {data} = await axios.put(`/api/orders/${id}`)
+    dispatch(boughtOrder(data))
+    history.push(`/orders/${data.id}`)
+  } catch (error) {
+    console.log('Buy order thunk failed!')
+  }
+}
 //initialState
 const initialState = {
   neworder: {},
@@ -81,9 +83,18 @@ const orderReducer = (state = initialState, action) => {
       return {...state, orders: action.orders}
     case GET_ORDER:
       return {...state, order: action.order}
-    // case BUY_ORDER:
-    //   const updateId = Number(action.order.id)
-    //   console.log(updateId)
+    case BUY_ORDER:
+      const updateId = Number(action.order.id)
+      orders = state.orders.map(order => {
+        if (order.id === updateId) {
+          order.status = 'paid'
+        }
+        return order
+      })
+      return {
+        ...state,
+        orders
+      }
     default:
       return initialState
   }
