@@ -88,14 +88,19 @@ form div {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  width: 1500px;
+  width: 1200px;
   padding: 30px;
 }
 
 .content {
-  flex: 1;
-  padding: 20px;
+  /* flex: 1; */
+  width: 50em;
+  padding: 30px;
   text-align: center;
+  border-style: solid;
+  border-width: 2px;
+  border-color: gray;
+  border-radius: 10px;
 }
 
 .formInputs {
