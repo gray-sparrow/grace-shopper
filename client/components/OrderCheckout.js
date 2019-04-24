@@ -16,8 +16,8 @@ class OrderCheckout extends Component {
     return !this.props.cart ? (
       <div>Loading!</div>
     ) : (
-      <div>
-        <h2>Price: {this.props.price}</h2>
+      <div className="checkout">
+        <h2>Price: ${this.props.price}</h2>
         <h2>Order Status: {this.props.status}</h2>
         <h2>Order Number: {this.props.id}</h2>
         <h2>Cart: </h2>

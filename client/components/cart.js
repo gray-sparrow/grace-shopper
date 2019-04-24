@@ -32,9 +32,9 @@ class Cart extends Component {
           {cart.map(item => {
             subtotal += item.price * item.quantity
             return (
-              <div key={item.id}>
+              <div key={item.id} className="cart">
                 <li className="cart-item">{item.name}</li>
-                <div>Quantity: {item.quantity}</div>
+                <div>Quantity: {item.quantity} bag(s)</div>
                 <button
                   type="submit"
                   onClick={() => this.handleClick(item.id)}
@@ -46,18 +46,19 @@ class Cart extends Component {
             )
           })}
         </ul>
-        <div>SUBTOTAL: {subtotal}</div>
-        <button
-          type="submit"
-          onClick={() => this.handleSubmit(subtotal)}
-          id="SubmitFromCart"
-        >
-          Submit
-        </button>
+        <div className="subtotal">
+          <div>SUBTOTAL: ${subtotal}</div>
+          <button
+            type="submit"
+            onClick={() => this.handleSubmit(subtotal)}
+            id="SubmitFromCart">
+            Submit
+          </button>
+        </div>
       </div>
     )
   }
-}
+  }
 
 const mapStateToProps = state => {
   return {
