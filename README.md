@@ -1,4 +1,4 @@
-# Boilermaker
+# SHOP-RICE
 
 <p align="center">
 <img src="/public/logo.png">
